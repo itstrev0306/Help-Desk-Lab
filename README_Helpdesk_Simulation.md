@@ -24,13 +24,13 @@ This project includes:
 
 ### Step 1: Launching the EC2 Instance
 - Launched a **Windows Server 2019 Base** EC2 instance via AWS Console.
-- Instance type: `t2.medium` (2 vCPU, 4GB RAM).
+- Instance type: `t3.xlarge` (4 vCPU, 16GB RAM).
 - Configured key pair for remote access and opened RDP (port 3389) in the security group.
 
 ### Step 2: Initial Configuration
 - Connected to the instance via Remote Desktop.
 - Set static IP via EC2 settings for consistency in DNS and AD use.
-- Renamed the computer for easier domain management (`AD-Server`).
+- Renamed the computer for easier domain management (`windows`).
 
 ---
 
@@ -39,7 +39,7 @@ This project includes:
 ### Step 1: Installing AD DS
 - Installed **Active Directory Domain Services** using Server Manager.
 - Promoted the server to a **Domain Controller**.
-- Created a new forest with the domain name: `helpdesk.local`.
+- Created a new forest with the domain name: `livetest.local`.
 
 ### Step 2: DNS Configuration
 - DNS installed and configured during AD setup.
@@ -51,16 +51,15 @@ This project includes:
 
 ### ✔️ Creating Users
 Used the **Active Directory Users and Computers (ADUC)** tool to create users:
-- Created organizational units (OUs): `IT`, `HR`, `Sales`.
-- Added users such as `jdoe`, `asmith` with usernames, email, and password.
+- Added users such as `Trey Brown` with username, email, and password.
 
 ### ✔️ Creating Groups
-- Created **Security Groups**: `IT_Staff`, `HR_Managers`, `Sales_Team`.
+- Created **Security Groups**: `LiveTestGroup`.
 - Assigned users to appropriate groups for access control and policy application.
 
 ### ✔️ Resetting Passwords
 - Simulated common helpdesk request by resetting passwords via ADUC.
-- Enforced “User must change password at next login” for security.
+- Enforced “password never expires” for "security".
 
 ---
 
